@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avícola El Galpón | Carne de Pollo Fresca y Nutritiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            red: '#dc2626',
+                            darkred: '#991b1b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="font-sans bg-amber-50/30 text-gray-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-red rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-bold fa-drumstick-bite"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold text-gray-900 tracking-tight block leading-none">Pollo<span class="text-brand-red">Fresco</span></span>
+                        <span class="text-xs font-semibold text-brand-600 tracking-widest uppercase">Calidad Premium</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8 font-medium">
+                    <a href="#inicio" class="text-gray-700 hover:text-brand-red transition-colors py-2 border-b-2 border-transparent hover:border-brand-red">Inicio</a>
+                    <a href="#productos" class="text-gray-700 hover:text-brand-red transition-colors py-2 border-b-2 border-transparent hover:border-brand-red">Productos</a>
+                    <a href="#blog" class="text-gray-700 hover:text-brand-red transition-colors py-2 border-b-2 border-transparent hover:border-brand-red">Blog & Recetas</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-brand-red transition-colors py-2 border-b-2 border-transparent hover:border-brand-red">Contáctame</a>
+                </nav>
+
+                <!-- Actions: Cart Button & Mobile Menu Toggle -->
+                <div class="flex items-center gap-4">
+                    <button id="cart-btn" onclick="toggleCart()" class="relative p-2.5 text-gray-700 hover:text-brand-red rounded-full hover:bg-amber-100/50 transition-all">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-red text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-sm">0</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-700 hover:text-brand-red focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-amber-50 hover:text-brand-red">Inicio</a>
+            <a href="#productos" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-amber-50 hover:text-brand-red">Productos</a>
+            <a href="#blog" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-amber-50 hover:text-brand-red">Blog & Recetas</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-amber-50 hover:text-brand-red">Contáctame</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative overflow-hidden pt-8 pb-16 lg:pt-20 lg:pb-28 bg-gradient-to-b from-amber-50/50 via-white to-amber-50/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 border border-brand-500/20">
+                        <i class="fa-solid fa-certificate text-brand-600"></i> 100% Frescura Garantizada del Campo a tu Mesa
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
+                        La Carne de Pollo más <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-500">Tierna y Deliciosa</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Criados de forma natural, sin hormonas añadidas y bajo estrictos controles de calidad. Haz tu pedido hoy y recíbelo fresco en la puerta de tu hogar.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#productos" class="px-8 py-4 bg-gradient-to-r from-brand-red to-red-700 text-white font-bold rounded-2xl shadow-lg shadow-brand-red/30 hover:shadow-xl hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-basket-shopping"></i> Ver Productos
+                        </a>
+                        <a href="#contacto" class="px-8 py-4 bg-white text-gray-800 font-bold rounded-2xl border-2 border-gray-200 hover:border-brand-500 hover:bg-amber-50/50 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone"></i> Pedido Directo
+                        </a>
+                    </div>
+                    <!-- Features Badges -->
+                    <div class="pt-8 border-t border-gray-200/80 grid grid-cols-3 gap-4">
+                        <div class="text-center lg:text-left">
+                            <i class="fa-solid fa-truck-fast text-brand-red text-xl mb-1"></i>
+                            <h4 class="font-bold text-sm text-gray-900">Envío Rápido</h4>
+                            <p class="text-xs text-gray-500">Reparto refrigerado</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <i class="fa-solid fa-[#22c55e] fa-shield-halved text-emerald-600 text-xl mb-1"></i>
+                            <h4 class="font-bold text-sm text-gray-900">100% Orgánico</h4>
+                            <p class="text-xs text-gray-500">Alimentación sana</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <i class="fa-solid fa-tag text-brand-500 text-xl mb-1"></i>
+                            <h4 class="font-bold text-sm text-gray-900">Mejor Precio</h4>
+                            <p class="text-xs text-gray-500">Venta directa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-brand-500 to-brand-red opacity-20 blur-xl"></div>
+                        <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&q=80&w=800" 
+                             alt="Carne de Pollo Fresco" 
+                             class="relative rounded-3xl shadow-2xl object-cover w-full h-[450px] border-4 border-white"
+                             onerror="this.src='https://placehold.co/800x600/e2e8f0/1e293b?text=Pollo+Fresco'">
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-gray-100 hidden sm:flex">
+                            <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-gray-500 uppercase">Garantía</p>
+                                <p class="text-sm font-bold text-gray-900">Corte y Peso Exacto</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-red font-bold text-sm tracking-wider uppercase">Nuestra Tienda</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Cortes de Pollo Frescos</h2>
+                <p class="text-gray-600 mt-3">Selecciona tus cortes preferidos. Limpios, empacados al vacío y listos para cocinar.</p>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8" id="category-filters">
+                    <button onclick="filterProducts('all')" class="filter-btn active px-5 py-2.5 rounded-full text-sm font-semibold bg-brand-red text-white shadow-md transition-all">Todos</button>
+                    <button onclick="filterProducts('enteros')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">Pollos Enteros</button>
+                    <button onclick="filterProducts('cortes')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">Cortes Individuales</button>
+                    <button onclick="filterProducts('especiales')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">Especiales & Preparados</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="products-grid">
+                <!-- Products dynamically inserted via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="py-20 bg-amber-50/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-bold text-sm tracking-wider uppercase">Consejos & Recetas</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Blog de la Cocina Avícola</h2>
+                <p class="text-gray-600 mt-3">Descubre trucos de cocina, recetas saludables e información nutricional relevante.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&q=80&w=600" 
+                             alt="Receta Pechuga a las hierbas" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/fef3c7/b45309?text=Receta+Pollo'">
+                        <span class="absolute top-4 left-4 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Recetas</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 font-medium">15 de Octubre, 2026</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3 hover:text-brand-red transition-colors">Pechugas Jugosas a las Finas Hierbas</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">Aprende el secreto para cocinar pechugas de pollo sin que queden secas. Un marinado sencillo que cambiará tus almuerzos.</p>
+                        </div>
+                        <a href="#blog" onclick="showBlogModal(1)" class="inline-flex items-center gap-2 text-brand-red font-bold text-sm mt-6 hover:gap-3 transition-all">Leer artículo completo <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&q=80&w=600" 
+                             alt="Nutrición del pollo" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/fef3c7/b45309?text=Nutricion'">
+                        <span class="absolute top-4 left-4 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Salud</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 font-medium">10 de Octubre, 2026</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3 hover:text-brand-red transition-colors">Beneficios de la Carne de Pollo en la Dieta</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">Descubre por qué la carne de pollo es la proteína magra preferida por deportistas y familias para mantener una vida saludable.</p>
+                        </div>
+                        <a href="#blog" onclick="showBlogModal(2)" class="inline-flex items-center gap-2 text-brand-red font-bold text-sm mt-6 hover:gap-3 transition-all">Leer artículo completo <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&q=80&w=600" 
+                             alt="Conservación de carne" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/fef3c7/b45309?text=Tips+Conservacion'">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Consejos</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 font-medium">02 de Octubre, 2026</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3 hover:text-brand-red transition-colors">Guía Correcta para Congelar y Descongelar</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">Evita la proliferación de bacterias y conserva el sabor intacto con estos sencillos pasos de higiene e inocuidad alimentaria.</p>
+                        </div>
+                        <a href="#blog" onclick="showBlogModal(3)" class="inline-flex items-center gap-2 text-brand-red font-bold text-sm mt-6 hover:gap-3 transition-all">Leer artículo completo <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 sm:p-12 border border-brand-100">
+                
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-brand-red font-bold text-sm tracking-wider uppercase">Contáctame</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Haz tu Pedido o Consulta Directa</h2>
+                        <p class="text-gray-600 mt-3">¿Tienes dudas sobre pedidos al por mayor o deseas atención personalizada? Escríbenos o visítanos.</p>
+                    </div>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-red text-white rounded-xl flex items-center justify-center text-lg shrink-0 shadow-md">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Ubicación Principal</h4>
+                                <p class="text-gray-600 text-sm">Mercado Central, Pasillo Avícola Puesto #42, Arequipa, Perú</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center text-lg shrink-0 shadow-md">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">WhatsApp / Pedidos Rápidos</h4>
+                                <p class="text-gray-600 text-sm">+51 987 654 321</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-500 text-white rounded-xl flex items-center justify-center text-lg shrink-0 shadow-md">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Correo Electrónico</h4>
+                                <p class="text-gray-600 text-sm">ventas@pollofresco.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-800 text-white rounded-xl flex items-center justify-center text-lg shrink-0 shadow-md">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Horario de Atención</h4>
+                                <p class="text-gray-600 text-sm">Lunes a Sábado: 6:00 AM - 5:00 PM<br>Domingos: 6:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Envíanos un Mensaje</h3>
+                        
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Nombre Completo</label>
+                            <input type="text" required placeholder="Ej. Juan Pérez" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Teléfono / WhatsApp</label>
+                            <input type="tel" required placeholder="Ej. 987654321" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Tipo de Pedido / Consulta</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all">
+                                <option>Pedido Particular / Hogar</option>
+                                <option>Pedido al Por Mayor (Restaurantes/Pollerías)</option>
+                                <option>Consulta General</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Mensaje o Detalle del Pedido</label>
+                            <textarea rows="4" required placeholder="Escribe aquí los productos que necesitas o tu duda..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brand-red hover:bg-brand-darkred text-white font-bold rounded-xl shadow-lg shadow-brand-red/30 hover:shadow-xl transition-all">
+                            Enviar Mensaje por WhatsApp <i class="fa-brands fa-whatsapp ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-drumstick-bite"></i>
+                        </div>
+                        <span class="text-xl font-extrabold tracking-tight">Pollo<span class="text-brand-red">Fresco</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Ofreciendo la carne de pollo más fresca, saludable y deliciosa para familias y negocios locales.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#productos" class="hover:text-white transition-colors">Catálogo de Productos</a></li>
+                        <li><a href="#blog" class="hover:text-white transition-colors">Blog y Consejos</a></li>
+                        <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Garantía de Calidad</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Cadena de frío ininterrumpida</li>
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Cortes higiénicos y precisos</li>
+                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Entrega a domicilio puntual</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:bg-brand-red hover:text-white transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:bg-brand-red hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:bg-brand-red hover:text-white transition-all"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2026 PolloFresco. Todos los derechos reservados. Diseñado para ofrecer la mejor experiencia visual y comercial.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 bg-brand-red text-white flex items-center justify-between">
+                    <h2 class="text-lg font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-cart-shopping"></i> Tu Carrito de Compras
+                    </h2>
+                    <button onclick="toggleCart()" class="text-white hover:text-gray-200">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Dynamic cart content -->
+                </div>
+
+                <!-- Cart Footer -->
+                <div class="p-6 border-t border-gray-200 bg-gray-50">
+                    <div class="flex justify-between text-base font-bold text-gray-900 mb-4">
+                        <p>Total Estimado:</p>
+                        <p id="cart-total">S/ 0.00</p>
+                    </div>
+                    <button onclick="checkoutWhatsApp()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Finalizar Pedido por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toast-message">Producto añadido al carrito</span>
+    </div>
+
+    <script>
+        // Data for Products
+        const products = [
+            {
+                id: 1,
+                name: 'Pollo Entero Fresco',
+                category: 'enteros',
+                price: 10.50,
+                unit: 'kg',
+                image: 'https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&q=80&w=500',
+                desc: 'Pollo limpio sin vísceras, fresco del día. Ideal para hornear o guisados.'
+            },
+            {
+                id: 2,
+                name: 'Pechuga Especial Deshuesada',
+                category: 'cortes',
+                price: 18.00,
+                unit: 'kg',
+                image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&q=80&w=500',
+                desc: 'Corte magro sin piel ni hueso, alto en proteína. Perfecto para dietas.'
+            },
+            {
+                id: 3,
+                name: 'Muslo y Pierna de Pollo',
+                category: 'cortes',
+                price: 11.00,
+                unit: 'kg',
+                image: 'https://images.unsplash.com/photo-1588347818036-558601350947?auto=format&fit=crop&q=80&w=500',
+                desc: 'Carne jugosa y suave con piel. Ideal para parrilla, fritos o arroz con pollo.'
+            },
+            {
+                id: 4,
+                name: 'Alitas de Pollo Frescas',
+                category: 'cortes',
+                price: 12.50,
+                unit: 'kg',
+                image: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&q=80&w=500',
+                desc: 'Alitas crujientes perfectas para la parrilla, brochetas o alitas BBQ.'
+            },
+            {
+                id: 5,
+                name: 'Milanesas de Pollo Empanadas',
+                category: 'especiales',
+                price: 20.00,
+                unit: 'kg',
+                image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&q=80&w=500',
+                desc: 'Listas para freír u hornearlas. Condimentadas con receta secreta.'
+            },
+            {
+                id: 6,
+                name: 'Hamburguesas de Pollo Caseras',
+                category: 'especiales',
+                price: 16.00,
+                unit: 'pack (6 un)',
+                image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=500',
+                desc: 'Hamburguesas artesanas 100% pechuga de pollo y finas hierbas.'
+            },
+            {
+                id: 7,
+                name: 'Menudencia Compuesta',
+                category: 'especiales',
+                price: 6.50,
+                unit: 'kg',
+                image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&q=80&w=500',
+                desc: 'Incluye molleja, corazón y hígados seleccionados frescos.'
+            },
+            {
+                id: 8,
+                name: 'Pollo BB para Parrilla',
+                category: 'enteros',
+                price: 14.00,
+                unit: 'kg',
+                image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&q=80&w=500',
+                desc: 'Pollo tierno de tamaño mediano especial para la brasa o cilindro.'
+            }
+        ];
+
+        let cart = [];
+
+        // DOM Loaded Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts(products);
+        });
+
+        // Render Products
+        function renderProducts(items) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = items.map(product => `
+                <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden custom-shadow transition-all duration-300 flex flex-col">
+                    <div class="relative h-48 bg-gray-100 overflow-hidden">
+                        <img src="${product.image}" 
+                             alt="${product.name}" 
+                             class="product-img w-full h-full object-cover transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/500x400/fffbeb/d97706?text=Pollo+Fresco'">
+                        <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-md text-brand-red font-extrabold text-sm px-3 py-1 rounded-full shadow-sm">
+                            S/ ${product.price.toFixed(2)} / ${product.unit}
+                        </span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg mb-1">${product.name}</h3>
+                            <p class="text-gray-500 text-xs leading-relaxed mb-4">${product.desc}</p>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="w-full py-2.5 bg-amber-100 hover:bg-brand-red text-brand-800 hover:text-white font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Products
+        function filterProducts(category) {
+            // Active Button Style
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-red', 'text-white', 'shadow-md');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+
+            event.target.classList.remove('bg-gray-100', 'text-gray-700');
+            event.target.classList.add('bg-brand-red', 'text-white', 'shadow-md');
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Cart Actions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`Añadiste "${product.name}" al carrito`);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function changeQuantity(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartUI();
+                }
+            }
+        }
+
+        function updateCartUI() {
+            // Count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').innerText = totalItems;
+
+            // List
+            const cartItemsContainer = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-5xl mb-3"></i>
+                        <p class="text-sm font-medium">Tu carrito está vacío</p>
+                    </div>
+                `;
+            } else {
+                cartItemsContainer.innerHTML = cart.map(item => `
+                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                            <p class="text-xs text-brand-red font-semibold">S/ ${(item.price * item.quantity).toFixed(2)}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="changeQuantity(${item.id}, -1)" class="w-6 h-6 rounded-md bg-white border border-gray-300 text-xs font-bold flex items-center justify-center">-</button>
+                                <span class="text-xs font-bold">${item.quantity}</span>
+                                <button onclick="changeQuantity(${item.id}, 1)" class="w-6 h-6 rounded-md bg-white border border-gray-300 text-xs font-bold flex items-center justify-center">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-brand-red">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Total
+            const totalMoney = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cart-total').innerText = `S/ ${totalMoney.toFixed(2)}`;
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // WhatsApp Checkout
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío. Agrega productos para realizar tu pedido.');
+                return;
+            }
+
+            let message = '¡Hola! Quisiera realizar el siguiente pedido de Pollo Fresco:%0A%0A';
+            cart.forEach(item => {
+                message += `• *${item.name}* x${item.quantity} - S/ ${(item.price * item.quantity).toFixed(2)}%0A`;
+            });
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            message += `%0A*Total Estimado:* S/ ${total.toFixed(2)}%0A%0A¿Podrían indicarme la disponibilidad y tiempo de entrega?`;
+
+            window.open(`https://wa.me/51987654321?text=${message}`, '_blank');
+        }
+
+        // Contact Form Handling
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const inputs = e.target.querySelectorAll('input, textarea, select');
+            const name = inputs[0].value;
+            const phone = inputs[1].value;
+            const type = inputs[2].value;
+            const detail = inputs[3].value;
+
+            const message = `Hola PolloFresco, soy *${name}* (Tel: ${phone}).%0A*Tipo de Consulta:* ${type}%0A*Detalle:* ${detail}`;
+            window.open(`https://wa.me/51987654321?text=${message}`, '_blank');
+        }
+
+        // Show Toast Function
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Simple Blog Modal Reader Simulation
+        function showBlogModal(id) {
+            const titles = {
+                1: 'Pechugas Jugosas a las Finas Hierbas',
+                2: 'Beneficios Nutricionales de la Carne de Pollo',
+                3: 'Guía Correcta para Congelar y Descongelar Pollo'
+            };
+            alert(`Artículo: "${titles[id]}"\n\nPróximamente podrás leer la nota completa en nuestro portal de recetas.`);
+        }
+    </script>
+</body>
+</html>
